@@ -4,7 +4,7 @@ using namespace std;
 
 string input = "";
 
-int main() {
+int main(int argc, char **argv) {
 	cout.sync_with_stdio(false);
 	cin.sync_with_stdio(false);
 
