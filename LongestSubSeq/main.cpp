@@ -127,6 +127,27 @@ private:
 	std::vector<T> _sums;
 };
 
+template<typename T>
+void binarySearchDp(vector<T> seq) {
+	vector<T> dp;
+	dp.assign(seq.size(), numeric_limits<T>::max()); //elem at the end of increasing subsequence of length N
+	dp[0] = seq[0];
+
+	int maxLen = 1;
+	for (auto i = 0; i < seq.size(); i++) {
+		//searches in dp value >= current val from seq
+		//and updates it by current val
+		auto notLessVal = std::lower_bound(begin(dp), end(dp), seq[i]);
+		if (*notLessVal > seq[i]) {
+			*notLessVal = seq[i];
+			maxLen = distance(begin(dp), notLessVal);
+		}
+	}
+	for (auto i = 0; i < maxLen + 1; i++) {
+		cout << dp[i] << endl;
+	}
+}
+
 int main(int argc, char **argv) {
 	cout.sync_with_stdio(false);
 	cin.sync_with_stdio(false);
@@ -147,6 +168,10 @@ int main(int argc, char **argv) {
 		pinp = &cin;
 	}
 	istream &icp = *pinp;
+
+
+	vector<int> searchSeq = { 5, 3, 2, 10, 8, 4, 11, 7, 20 };
+	binarySearchDp(searchSeq);
 
 	vector<int> seq = { 1, 2, 3, 4, 5 };
 	//vector<int> seq = { 2, 2, -4, 8, 10 };
