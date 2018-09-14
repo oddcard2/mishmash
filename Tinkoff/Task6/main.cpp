@@ -2,7 +2,9 @@
 
 using namespace std;
 
-string input = "";
+string input = "11";
+
+static int dp[1001][1001];
 
 int main(int argc, char **argv) {
 	cout.sync_with_stdio(false);
@@ -24,6 +26,26 @@ int main(int argc, char **argv) {
 		pinp = &cin;
 	}
 	istream &icp = *pinp;
+
+	int n = 11;
+	//int n = 1000;
+	//cin >> n;
+
+	dp[0][0] = 1;
+
+	for (int i = 1; i <= n; i++) { //num of kisses (beze)
+		for (int m = 1; m <= i; m++) { //first elem
+			for (int p=min(m-1, i-m);p >=0; p--) //prev elem
+				dp[i][m] += dp[i - m][p];
+		}
+	}
+
+	int64_t ans = 0;
+	for (int i = 0; i <= n; i++) {
+		ans += dp[n][i];
+	}
+
+	cout << ans << endl;
 	
 	return 0;
 }
