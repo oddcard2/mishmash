@@ -3,7 +3,11 @@
 
 using namespace std;
 
-string input = "";
+string input = "4 "\
+"0 3 "\
+"3 0 "\
+"0 -3 "\
+"-3 0";
 
 static vector<int> generate_squares(int min, int max) {
 	vector<int> res;
@@ -26,6 +30,8 @@ static vector<vector<pair<int, int>>> generate_sum_squares(const vector<int>& sq
 	return res;
 }
 
+static int squares[2001];
+
 int main(int argc, char **argv) {
 	cout.sync_with_stdio(false);
 	cin.sync_with_stdio(false);
@@ -47,6 +53,68 @@ int main(int argc, char **argv) {
 	}
 	istream &icp = *pinp;
 
+
+#if 1
+	//brut force
+	int n;
+	icp >> n;
+
+	struct Point {
+		int16_t x;
+		int16_t y;
+	};
+
+	vector<Point> p;
+	p.resize(n);
+
+	int minX = 10000, maxX = -10000;
+	int minY = 10000, maxY = -10000;
+	for (int i = 0; i < n; i++) {
+		icp >> p[i].x >> p[i].y;
+		if (p[i].x < minX)
+			minX = p[i].x;
+		if (p[i].y < minY)
+			minY = p[i].y;
+		//max
+		if (p[i].x > maxX)
+			maxX = p[i].x;
+		if (p[i].y > maxY)
+			maxY = p[i].y;
+	}
+
+	int maxDistance = max(maxX - minX, maxY - minY);
+	for (int i = 0; i <= maxDistance; i++) {
+		squares[i] = i * i;
+	}
+
+	int64_t count = 0;
+	for (int i = 0; i < n-2; i++) {
+		for (int j = i+1; j < n - 1; j++) {
+			for (int k = j+1; k < n; k++) {
+				//check that it's correct triangle
+				int d[5] = { squares[abs(p[j].x - p[i].x)] + squares[abs(p[j].y - p[i].y)],
+								squares[abs(p[k].x - p[i].x)] + squares[abs(p[k].y - p[i].y)],
+								squares[abs(p[k].x - p[j].x)] + squares[abs(p[k].y - p[j].y)] };
+				d[3] = d[0];
+				d[4] = d[1];
+
+				//y3(x2-x1)=u1(x2-x1)+(y2-y1)(x3-x1)
+				if (p[2].y*(p[1].x - p[0].x) != p[0].y*(p[1].x - p[0].x) + (p[1].y-p[0].y)*(p[2].x - p[0].x))
+				{
+					for (int s = 0; s < 3; s++) {
+						if (d[s] == d[s + 1]) {
+							//if (d[s] + d[s + 1] > d[s + 2]) {
+								count++;
+							//}
+							break;
+						}
+					}
+				}
+
+			}
+		}
+	}
+#else
 	vector<int> sq = generate_squares(0, 1000);
 	auto sums = generate_sum_squares(sq, 0, 1000);
 
@@ -69,5 +137,6 @@ int main(int argc, char **argv) {
 	for (auto it : sums[largest_options_sum]) {
 		cout << it.first << " + " << it.second << endl;
 	}
+#endif
 	return 0;
 }
