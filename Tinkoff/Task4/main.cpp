@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 #include <chrono>
+#include <random>
 
 using namespace std;
 
@@ -66,8 +67,54 @@ static vector<vector<pair<int, int>>> generate_sum_squares(const vector<int>& sq
 	return res;
 }
 
+struct Point {
+	int16_t x;
+	int16_t y;
+	Point(int16_t x, int16_t y) : x(x), y(y) {}
+	Point() {}
+};
+
+static bool operator<(const Point& a, const Point& b) {
+	if (a.x != b.x)
+		return a.x < b.x;
+	return a.y < b.y;
+}
+
+vector<Point> generate_points(int minX, int maxX, int minY, int maxY, int n) {
+	vector<Point> res;
+	res.resize(n);
+	set<Point> points;
+
+	//https://en.cppreference.com/w/cpp/numeric/random
+	std::random_device rd;     // only used once to initialise (seed) engine
+	std::mt19937 rng(rd());    // random-number engine used (Mersenne-Twister in this case)
+	std::uniform_int_distribution<int> uniX(minX, maxX); // guaranteed unbiased
+	std::uniform_int_distribution<int> uniY(minY, maxY); // guaranteed unbiased
+
+	while ((int)points.size() < n) {
+		Point p(uniX(rng), uniY(rng));
+		points.emplace(p);
+	}
+	copy(begin(points), end(points), begin(res));
+	return res;
+}
+
+void generate_and_save_to_file(string file_path) {
+	int n = 1500;
+	auto p = generate_points(-1000, 1000, -1000, 1000, n);
+	
+	ofstream f(file_path);
+	f << n << endl;
+	for (auto it: p) {
+		f << it.x << " " << it.y <<endl;
+	}
+}
+
 static int squares[2001];
 
+//PowerShell:
+//Measure-Command {.\Task4.exe}
+//Measure-Command {.\Task4.exe ..\..\input.txt}
 int main(int argc, char **argv) {
 	cout.sync_with_stdio(false);
 	cin.sync_with_stdio(false);
@@ -95,13 +142,14 @@ int main(int argc, char **argv) {
 	int n;
 	icp >> n;
 
-	struct Point {
-		int16_t x;
-		int16_t y;
-	};
-
 	vector<Point> p;
 	p.resize(n);
+
+	//n = 1500;
+	//p = generate_points(-1000, 1000, -1000, 1000, n);
+
+	//generate_and_save_to_file("input.txt");
+	//return 0;
 
 	int minX = 10000, maxX = -10000;
 	int minY = 10000, maxY = -10000;
@@ -143,7 +191,7 @@ int main(int argc, char **argv) {
 							//if (d[s] + d[s + 1] > d[s + 2]) {
 								count++;
 							//}
-							cout << i << " " << j << " " << k << endl;
+							//cout << i << " " << j << " " << k << endl;
 							break;
 						}
 					}
