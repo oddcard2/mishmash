@@ -9,6 +9,42 @@ string input = "4 "\
 "0 -3 "\
 "-3 0";
 
+//20 triangles
+string input2 = "9 "\
+"-4 -3 "\
+"-2 -3 "\
+"0 -3 "\
+
+"-4 1 "\
+"-2 1 "\
+"0 1 "\
+
+"-4 5 "\
+"-2 5 "\
+"0 5 ";
+
+//72 - is it correct?
+string input3 = "16 "\
+"-4 -3 "\
+"-2 -3 "\
+"0 -3 "\
+"2 -3 "\
+
+"-4 1 "\
+"-2 1 "\
+"0 1 "\
+"2 1 "\
+
+"-4 5 "\
+"-2 5 "\
+"0 5 "\
+"2 5 "\
+
+"-4 9 "\
+"-2 9 "\
+"0 9 "\
+"2 9 ";
+
 static vector<int> generate_squares(int min, int max) {
 	vector<int> res;
 	res.resize(max + 1);
@@ -98,14 +134,16 @@ int main(int argc, char **argv) {
 				d[3] = d[0];
 				d[4] = d[1];
 
-				//y3(x2-x1)=u1(x2-x1)+(y2-y1)(x3-x1)
-				if (p[2].y*(p[1].x - p[0].x) != p[0].y*(p[1].x - p[0].x) + (p[1].y-p[0].y)*(p[2].x - p[0].x))
+				//y3=y1+(y2-y1)/(x2-x1)*(x3-x1)
+				//y3(x2-x1)=y1(x2-x1)+(y2-y1)*(x3-x1)
+				if (p[k].y*(p[j].x - p[i].x) != p[i].y*(p[j].x - p[i].x) + (p[j].y-p[i].y)*(p[k].x - p[i].x))
 				{
 					for (int s = 0; s < 3; s++) {
 						if (d[s] == d[s + 1]) {
 							//if (d[s] + d[s + 1] > d[s + 2]) {
 								count++;
 							//}
+							cout << i << " " << j << " " << k << endl;
 							break;
 						}
 					}
@@ -114,6 +152,8 @@ int main(int argc, char **argv) {
 			}
 		}
 	}
+
+	cout << count;
 #else
 	vector<int> sq = generate_squares(0, 1000);
 	auto sums = generate_sum_squares(sq, 0, 1000);
