@@ -1,0 +1,300 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+1.
+ Викинги
+\end_layout
+
+\begin_layout Standard
+У викинга есть 30 мечей и 30 щитов.
+ Он выложил предметы в ряд в случайном порядке и далее за один ход может
+ поменять 2 соседних предмета местами.
+ Викинг хочет, чтобы все мечи лежали подряд, за какое минимальное число
+ ходов он добьётся результата, чтобы прям точно?
+\end_layout
+
+\begin_layout Standard
+Решение:
+\end_layout
+
+\begin_layout Standard
+Будем решать задачу в общем виде - пусть у нас n мечей и n щитов.
+ Рассмотрим произвольный ряд из мечей и щитов как ряд из 1 (мечи) и 0 (щиты).
+\end_layout
+
+\begin_layout Standard
+Оценим верхнюю границу числа ходов для того, чтобы все единицы шли подряд.
+\end_layout
+
+\begin_layout Standard
+1.
+ Предположим мы выбрали точку для сбора, т.к.
+ мы оцениваем верхнюю границу, то пусть в этой точке у нас пока собрано
+ 0 мечей.
+\end_layout
+
+\begin_layout Standard
+Нужно дать более строгое определение М.
+\end_layout
+
+\begin_layout Standard
+Будем подвигать мечи в место сбора, меняя местами соседние предметы в направлени
+и точки сбора как справа так и слева.
+\end_layout
+
+\begin_layout Standard
+При этом точка сбора справа (слева) - это точка после последнего собранного
+ справа (слева) меча.
+\end_layout
+
+\begin_layout Standard
+2.
+ Покажем, что число перестановок ровно сумме числа нулей от места сбора
+ до каждого из мечей.
+\end_layout
+
+\begin_layout Standard
+В качестве примера рассмотрим 4 меча и 4 щита, пусть место сбора будет в
+ середине - обозначим его М:
+\end_layout
+
+\begin_layout Standard
+1 0 1 0 M 0 0 1 1
+\end_layout
+
+\begin_layout Standard
+Будем переставлять только мечи с щитами в направлении М, т.к.
+ припереставновке щитов и мечей между собой ряд не меняется.
+\end_layout
+
+\begin_layout Standard
+Т.к.
+ мы не ищем оптимальный алгоритм, а пытаемся найти любой, который позволит
+ нам сложить все мечи вместе, то выберем следующий алгоритм.
+\end_layout
+
+\begin_layout Standard
+Рассмотрим доставку мечей только с одной стороны от М - справа (слева),
+ с другой стороны действуем аналогично.
+ 
+\end_layout
+
+\begin_layout Standard
+На каждой итерации передвигаем самую ближнюю к М единицу, меняя её с 0-ми
+ между М и данной единицой.
+\end_layout
+
+\begin_layout Standard
+Тогда число нулей между каждой единицой и М не изменяется после доставки
+ всех единиц перед ней.
+ (Доказать!)
+\end_layout
+
+\begin_layout Standard
+Без потери общности считаем что передвигаем единицы справа от М.
+\end_layout
+
+\begin_layout Standard
+Общее число перестановок S справа будет таким образом равнятся сумме числа
+ нулей перед каждой единицой справа, если 
+\begin_inset Formula $k_{i}$
+\end_inset
+
+- число нулей перед 
+\begin_inset Formula $i$
+\end_inset
+
+-ой единицой, то:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S=k_{1}+k_{2}+...+k_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Т.к.
+ мы оцениваем число верхнюю границу, то считаем, что перед каждой единицой
+ стоит максимальное число нулей - 
+\begin_inset Formula $k_{m}=k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Тогда пусть слева перед каждой единицой стоит оставшееся число нулей - 
+\begin_inset Formula $n-k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Следовательно между единицами нулей нет, пусть теперь:
+\end_layout
+
+\begin_layout Standard
+m - число единиц справа, тогда n-m - слева:
+\end_layout
+
+\begin_layout Standard
+Верхнюю границу ходов таким образом можно выразить как функцию от k и m:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(k,m)=km+(n-k)(n-m)=km+n^{2}-nm-kn+km=n^{2}-n(m+k)+2km$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Возьмём производную по k и найдём точки экстремума:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f'(k)=2m-n=0\Rightarrow m=n/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Т.е.
+ максимум достигается, когда с каждой стороны половина мечей и число перестаново
+к в таком случае:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f(k,n/2)=n^{2}-n^{2}/2-nk+2n/2k=n^{2}/2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Не зависит от положения точки сбора.
+\end_layout
+
+\begin_layout Standard
+При каждой перестановке, такой, что выбранный мечь перемещается на одну
+ позицию к М, количество нулей между ним и М уменьшается
+\end_layout
+
+\begin_layout Standard
+2.
+ При любой перестановке 
+\end_layout
+
+\begin_layout Standard
+2.
+ Покажем что при доставке любого меча в место сбора остальные мечи остаются
+ на месте
+\end_layout
+
+\begin_layout Standard
+2.
+ Покажем, что при фиксированной точке сбора число ходов не зависит от порядка
+ доставки мечей в выбранное место сбора.
+\end_layout
+
+\begin_layout Standard
+6.
+ Табун
+\end_layout
+
+\begin_layout Standard
+Точный текст задачи, к сожалению, не помню.
+ Если своими словами, то есть шахматная доска 4 на 4, в каждой клетке стоит
+ конь.
+ Нужно найти число способов одновременно сходить всеми конями так, чтобы
+ после такого одновременного хода в каждой клетке стоял ровно один конь.
+\end_layout
+
+\begin_layout Standard
+1 2 3 4
+\end_layout
+
+\begin_layout Standard
+5 6 7 8
+\end_layout
+
+\begin_layout Standard
+9 10
+\end_layout
+
+\end_body
+\end_document
