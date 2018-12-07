@@ -13,7 +13,4 @@ Windows
 8. cmake -G "Visual Studio 15 2017 Win64" ..
 9. Open solution googletest-release-1.8.1\googletest\build\gtest.sln
 10. Build soluition
-11. 
-
-https://marketplace.visualstudio.com/items?itemName=DavidSchuldenfrei.gtest-adapter
 
