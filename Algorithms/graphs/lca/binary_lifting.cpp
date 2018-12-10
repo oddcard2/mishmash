@@ -61,7 +61,8 @@ namespace {
 
 
 	//My binary lifting LCA
-	int n, l;
+	int n;
+	int l;
 	vector<vector<int> > g;
 	vector<int> tin, tout;
 	vector<vector<int> > up;

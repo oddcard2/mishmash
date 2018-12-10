@@ -5,6 +5,8 @@
 
 using namespace std;
 
+typedef long long ll;
+
 namespace {
 	int n;
 	vector<vector<int>> g;
@@ -19,13 +21,13 @@ namespace {
 		}
 	};
 
-	vector<tuple<int,int,int>> edges;
+	vector<tuple<int,int, ll>> edges;
 	vector<pair<int, int>> ans;
 
-	int mst_kruskal() {
-		int sum = 0;
+	ll mst_kruskal() {
+		ll sum = 0;
 		//sort edges
-		sort(begin(edges), end(edges), [](const tuple<int, int, int>& a, const tuple<int, int, int>& b) { return get<2>(a) < get<2>(b); });
+		sort(begin(edges), end(edges), [](const tuple<int, int, ll>& a, const tuple<int, int, ll> & b) { return get<2>(a) < get<2>(b); });
 
 		dsu d(n);
 		for (int i = 0; i < n; i++)
@@ -34,7 +36,8 @@ namespace {
 		}
 
 		for (int i = 0; i < edges.size(); i++) {
-			int u, v, w;
+			int u, v;
+			ll w;
 			tie(u, v, w) = edges[i];
 
 			if (d.find(u) != d.find(v)) {
@@ -74,7 +77,7 @@ namespace {
 			v++;
 		}
 
-		int sum = mst_kruskal();
+		ll sum = mst_kruskal();
 
 		EXPECT_EQ(3, ans.size());
 		EXPECT_EQ(-3, sum);
