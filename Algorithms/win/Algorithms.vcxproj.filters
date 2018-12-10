@@ -8,11 +8,31 @@
     <Filter Include="Graphs\LCA">
       <UniqueIdentifier>{8135cd7a-95dd-4cfe-ad3a-295bf946cd41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphs\MST">
+      <UniqueIdentifier>{2a2f8ec9-ff18-41a4-aba2-5cb05671fb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures">
+      <UniqueIdentifier>{e537e825-1f3b-45f3-b1f6-e4f56b8ac3c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures\DSU">
+      <UniqueIdentifier>{c0949602-ba9d-428e-b9c7-4f0f4b8282d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\graphs\lca\binary_lifting.cpp">
       <Filter>Graphs\LCA</Filter>
     </ClCompile>
+    <ClCompile Include="..\graphs\mst\kruskal_mst.cpp">
+      <Filter>Graphs\MST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\dsu\dsu.cpp">
+      <Filter>Structures\DSU</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\structures\dsu\dsu.h">
+      <Filter>Structures\DSU</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
