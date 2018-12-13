@@ -61,7 +61,6 @@ namespace {
 
 
 	//My binary lifting LCA
-	int n;
 	int l;
 	vector<vector<int> > g;
 	vector<int> tin, tout;
@@ -85,6 +84,14 @@ namespace {
 
 	bool upper(int a, int b) {
 		return tin[a] <= tin[b] && tout[a] >= tout[b];
+	}
+
+	void init_lca(int n) {
+		tin.resize(n), tout.resize(n), up.resize(n);
+		l = 1;
+		while ((1 << l) <= n)  ++l;
+		for (int i = 0; i < n; ++i)  up[i].resize(l + 1);
+		dfs(0);
 	}
 
 	int lca(int a, int b) {
@@ -119,7 +126,7 @@ namespace {
 		//10 11 12    13				14
 		//          15 16 17
 
-		n = 18;
+		int n = 18;
 
 		g.resize(18);
 
@@ -133,11 +140,7 @@ namespace {
 		g[9] = { 14 };
 		g[13] = { 15,16,17 };
 
-		tin.resize(n), tout.resize(n), up.resize(n);
-		l = 1;
-		while ((1 << l) <= n)  ++l;
-		for (int i = 0; i < n; ++i)  up[i].resize(l + 1);
-		dfs(0);
+		init_lca(n);
 
 		EXPECT_EQ(0, lca(0, 0));
 		EXPECT_EQ(0, lca(0, 7));

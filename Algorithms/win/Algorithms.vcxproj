@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="..\graphs\lca\binary_lifting.cpp" />
     <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
+    <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />
   </ItemGroup>

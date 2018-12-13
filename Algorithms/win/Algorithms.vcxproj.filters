@@ -29,6 +29,9 @@
     <ClCompile Include="..\structures\dsu\dsu.cpp">
       <Filter>Structures\DSU</Filter>
     </ClCompile>
+    <ClCompile Include="..\graphs\mst\prim_mst.cpp">
+      <Filter>Graphs\MST</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">
