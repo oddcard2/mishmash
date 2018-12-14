@@ -17,6 +17,15 @@
     <Filter Include="Structures\DSU">
       <UniqueIdentifier>{c0949602-ba9d-428e-b9c7-4f0f4b8282d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{56141fc6-07bc-43b1-a640-7edba93fc5a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory">
+      <UniqueIdentifier>{6bc631e1-c7d3-471f-8bbd-30cd21cb0837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\Primes">
+      <UniqueIdentifier>{bcb0c6ee-e30a-4b23-909a-9c2c01aad699}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -31,6 +40,12 @@
     </ClCompile>
     <ClCompile Include="..\graphs\mst\prim_mst.cpp">
       <Filter>Graphs\MST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp">
+      <Filter>NumberTheory\Primes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

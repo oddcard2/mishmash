@@ -119,10 +119,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
     <ClCompile Include="..\graphs\lca\binary_lifting.cpp" />
     <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
     <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />
   </ItemGroup>
   <ItemGroup>
