@@ -38,29 +38,8 @@ namespace {
 	}
 #endif
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//My binary lifting LCA
+	/*******************************/
 	int l;
 	vector<vector<int> > g;
 	vector<int> tin, tout;
@@ -71,7 +50,7 @@ namespace {
 		tin[v] = ++timer;
 
 		up[v][0] = p;
-		for (int i = 1; i <= l && up[v][i - 1] > 0; ++i) {
+		for (int i = 1; i <= l; ++i) {
 			up[v][i] = up[up[v][i - 1]][i - 1];
 		}
 		for (auto u : g[v]) {
@@ -109,17 +88,9 @@ namespace {
 		} while (i >= 0);
 		return up[u][0];
 	}
+	/*******************************/
 
-	class lca_binary_lifting : public testing::Test
-	{
-		virtual void SetUp() {
-		}
-
-		virtual void TearDown() {
-		}
-	};
-
-	TEST_F(lca_binary_lifting, simple_test) {
+	TEST(lca_binary_lifting, simple_test) {
 		//				    0	
 		//      1		    2		3
 		// 4    5    6      7    8      9
@@ -140,7 +111,9 @@ namespace {
 		g[9] = { 14 };
 		g[13] = { 15,16,17 };
 
+		/*******************************/
 		init_lca(n);
+		/*******************************/
 
 		EXPECT_EQ(0, lca(0, 0));
 		EXPECT_EQ(0, lca(0, 7));
