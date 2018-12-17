@@ -26,6 +26,21 @@
     <Filter Include="NumberTheory\Primes">
       <UniqueIdentifier>{bcb0c6ee-e30a-4b23-909a-9c2c01aad699}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphs\DFS">
+      <UniqueIdentifier>{24d4cee2-a40d-4289-bf65-679d7690ddc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\GCD">
+      <UniqueIdentifier>{3b3fa8eb-58b6-43cc-9fa2-6f044d593e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\FFT">
+      <UniqueIdentifier>{64f923b3-4f7f-4d60-b4f9-50ad8d9afd8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\ExpBySquaring">
+      <UniqueIdentifier>{672ef78f-0d0a-4958-8d6b-0c273324aec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\InverseModRing">
+      <UniqueIdentifier>{b49209f6-3512-4fc3-b75f-93236d8611f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -46,6 +61,24 @@
     </ClCompile>
     <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp">
       <Filter>NumberTheory\Primes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\dfs\dfs_test.cpp">
+      <Filter>Graphs\DFS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\fft\emaxx_fft_test.cpp">
+      <Filter>NumberTheory\FFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp">
+      <Filter>NumberTheory\ExpBySquaring</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\gcd\gcd_tests.cpp">
+      <Filter>NumberTheory\GCD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp">
+      <Filter>NumberTheory\InverseModRing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\lca\binary_lifting_dp.cpp">
+      <Filter>Graphs\LCA</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
