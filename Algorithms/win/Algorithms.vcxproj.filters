@@ -41,6 +41,9 @@
     <Filter Include="NumberTheory\InverseModRing">
       <UniqueIdentifier>{b49209f6-3512-4fc3-b75f-93236d8611f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphs\Bridges">
+      <UniqueIdentifier>{59a4c5d9-cce0-49e7-9ace-9ec156c402f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -79,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="..\graphs\lca\binary_lifting_dp.cpp">
       <Filter>Graphs\LCA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\bridges\bridges_search.cpp">
+      <Filter>Graphs\Bridges</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

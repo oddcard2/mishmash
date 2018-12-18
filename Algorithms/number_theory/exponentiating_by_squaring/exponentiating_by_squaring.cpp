@@ -5,8 +5,9 @@ using namespace std;
 
 namespace {
 
-	int binpow(int a, int n) {
-		int res = 1;
+	template<typename T>
+	T binpow(T a, int n) {
+		T res = 1;
 		while (n) {
 			if (n & 1)
 				res *= a;

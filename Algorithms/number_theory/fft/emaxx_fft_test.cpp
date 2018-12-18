@@ -38,51 +38,13 @@ namespace {
 		return true;
 	}
 
-	/********************************/
-	typedef complex<double> Comp;
-#define FOR(x,to) for(x=0;x<(to);x++)
-
-	vector<Comp> fft2(vector<Comp> v, bool rev = false) {
-		int n = v.size(), i, j, m;
-
-		for (i = 0, j = 1; j < n - 1; j++) {
-			for (int k = n >> 1; k > (i ^= k); k >>= 1);
-			if (i > j) swap(v[i], v[j]);
-		}
-		for (int m = 2; m <= n; m *= 2) {
-			double deg = (rev ? -1 : 1) * 2 * acos(-1) / m;
-			Comp wr(cos(deg), sin(deg));
-			for (i = 0; i < n; i += m) {
-				Comp w(1, 0);
-				for (int j1 = i, j2 = i + m / 2; j2 < i + m; j1++, j2++) {
-					Comp t1 = v[j1], t2 = w * v[j2];
-					v[j1] = t1 + t2, v[j2] = t1 - t2;
-					w *= wr;
-				}
-			}
-		}
-		if (rev) FOR(i, n) v[i] *= 1.0 / n;
-		return v;
-	}
-
-	vector<Comp> MultPoly(vector<Comp> P, vector<Comp> Q, bool resize = false) {
-		if (resize) {
-			int maxind = 0, pi = 0, qi = 0, i;
-			int s = 2;
-			FOR(i, P.size()) if (norm(P[i])) pi = i;
-			FOR(i, Q.size()) if (norm(Q[i])) qi = i;
-			maxind = pi + qi + 1;
-			while (s * 2 < maxind) s *= 2;
-			P.resize(s * 2); Q.resize(s * 2);
-		}
-		P = fft2(P), Q = fft2(Q);
-		for (int i = 0; i < P.size(); i++) P[i] *= Q[i];
-		return fft2(P, true);
-	}
-	/********************************/
 	//Copy these lines:
 	//http://e-maxx.ru/algo/fft_multiply
 	/*******************************/
+#ifndef M_PI
+#define M_PI       3.14159265358979323846
+#endif
+
 	typedef complex<double> base;
 
 	void fft(vector<base> & a, bool invert) {
@@ -140,10 +102,7 @@ namespace {
 			res[i] %= 10;
 		}
 	}
-
 	/*******************************/
-
-
 
 	TEST(emaxx_fft_test, forward_fft) {
 
@@ -165,9 +124,6 @@ namespace {
 
 		EXPECT_TRUE(compare_res(input1, expected_res, 1e-3));
 
-		auto res = fft2(input);
-		EXPECT_TRUE(compare_res(input1, expected_res, 1e-3));
-
 	}
 
 	TEST(emaxx_fft_test, multiplication) {
@@ -176,11 +132,6 @@ namespace {
 		vector<int> b = { 2, 3, 4 };
 
 		vector<int> res;
-
-		vector<Comp> aa(a.begin(), a.end());
-		vector<Comp> bb(b.begin(), b.end());
-
-		auto rr = MultPoly(aa, bb, true);
 
 		multiply(a, b, res);
 
@@ -192,6 +143,14 @@ namespace {
 		carry(res, 6);
 
 		EXPECT_EQ(vector<int>({ 2,7,6,8,3,1,0,0 }), res);
+
+
+		vector<int> a2 = { 0,1 };
+		vector<int> b2 = { 0,1 };
+		vector<int> res2;
+		multiply(a2, b2, res2);
+
+		EXPECT_EQ(vector<int>({ 0,0,1,0 }), res2);
 	}
 
 }

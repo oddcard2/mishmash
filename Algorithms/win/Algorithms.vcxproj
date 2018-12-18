@@ -121,6 +121,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
+    <ClCompile Include="..\graphs\bridges\bridges_search.cpp" />
     <ClCompile Include="..\graphs\dfs\dfs_test.cpp" />
     <ClCompile Include="..\graphs\lca\binary_lifting.cpp" />
     <ClCompile Include="..\graphs\lca\binary_lifting_dp.cpp" />
