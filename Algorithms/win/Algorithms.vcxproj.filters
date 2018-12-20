@@ -44,6 +44,18 @@
     <Filter Include="Graphs\Bridges">
       <UniqueIdentifier>{59a4c5d9-cce0-49e7-9ace-9ec156c402f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NumberTheory\Progressions">
+      <UniqueIdentifier>{210f19a4-5a8f-42a4-b259-5564dcacd232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures\SegmentTree">
+      <UniqueIdentifier>{70bbe27a-f5a1-4864-9b0a-a110c6b8eba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{b974b703-4196-4572-b9dd-b9b280cab724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\SuffixTree">
+      <UniqueIdentifier>{d1e5b349-3db6-4292-97e7-eefffec830c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -85,6 +97,15 @@
     </ClCompile>
     <ClCompile Include="..\graphs\bridges\bridges_search.cpp">
       <Filter>Graphs\Bridges</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp">
+      <Filter>NumberTheory\Progressions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp">
+      <Filter>Strings\SuffixTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp">
+      <Filter>Structures\SegmentTree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
