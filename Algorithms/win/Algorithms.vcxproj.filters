@@ -56,6 +56,12 @@
     <Filter Include="Strings\SuffixTree">
       <UniqueIdentifier>{d1e5b349-3db6-4292-97e7-eefffec830c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NumberTheory\BigInt">
+      <UniqueIdentifier>{72089adc-fa70-4e13-b286-fcbcf3808f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\Palindromes">
+      <UniqueIdentifier>{2dc6c991-e64a-4f63-9d67-5e04449004df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -106,6 +112,21 @@
     </ClCompile>
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp">
       <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\max_triangle_square.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\complex_numbers.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\rotating_calipers.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\bigint\bigint.cpp">
+      <Filter>NumberTheory\BigInt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\strings\palindromes\manacher_algo.cpp">
+      <Filter>Strings\Palindromes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -120,7 +120,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\geometry\complex_numbers.cpp" />
     <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
+    <ClCompile Include="..\geometry\max_triangle_square.cpp" />
+    <ClCompile Include="..\geometry\rotating_calipers.cpp" />
     <ClCompile Include="..\graphs\bridges\bridges_search.cpp" />
     <ClCompile Include="..\graphs\dfs\dfs_test.cpp" />
     <ClCompile Include="..\graphs\lca\binary_lifting.cpp" />
@@ -128,12 +131,14 @@
     <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
     <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\number_theory\bigint\bigint.cpp" />
     <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp" />
     <ClCompile Include="..\number_theory\fft\emaxx_fft_test.cpp" />
     <ClCompile Include="..\number_theory\gcd\gcd_tests.cpp" />
     <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp" />
     <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp" />
     <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp" />
+    <ClCompile Include="..\strings\palindromes\manacher_algo.cpp" />
     <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp" />
