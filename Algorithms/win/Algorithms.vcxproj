@@ -142,6 +142,7 @@
     <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp" />
+    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h" />
