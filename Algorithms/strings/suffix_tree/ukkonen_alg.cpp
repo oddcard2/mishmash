@@ -1,9 +1,11 @@
 #include <gtest/gtest.h>
 
+#include <cstdint>
 #include <map>
 #include <functional>
 #include <algorithm>
 
+typedef int64_t ll;
 
 using namespace std;
 
@@ -31,7 +33,7 @@ namespace {
 			//edge len to parent
 			int len() { return r - l; }
 			//child node for c or -1 if no child 
-			int &get(char c) {
+			int &get(S c) {
 				if (!next.count(c))  next[c] = -1;
 				return next[c];
 			}
@@ -47,9 +49,9 @@ namespace {
 		state ptr;
 
 		/**
-		 * gets state for [l,r) substring start
-		 * \returns state with v == -1 if no such position found 
-		 */
+		* gets state for [l,r) substring start
+		* \returns state with v == -1 if no such position found
+		*/
 		state go(state st, int l, int r) {
 			while (l < r) {
 				if (st.pos == t[st.v].len()) { //need to go futher, edge is processed
@@ -70,9 +72,9 @@ namespace {
 		}
 
 		/**
-		 * Creates new vertex on the middle of edge if required
-		 * \param st - vertex parent position
-		 */
+		* Creates new vertex on the middle of edge if required
+		* \param st - vertex parent position
+		*/
 		int split(state st) {
 			if (st.pos == t[st.v].len())
 				return st.v; //point to current vertex, offset from parent = parent edge length
@@ -94,8 +96,8 @@ namespace {
 
 			int to = get_link(t[v].par); //parent must have link because it's old internal node 
 
-			//create the new vertex on the next suffix edge if required (delayed suffix link update)
-			//we go to below reading the text to get position for splitting
+										 //create the new vertex on the next suffix edge if required (delayed suffix link update)
+										 //we go to below reading the text to get position for splitting
 			return t[v].link = split(go(state(to, t[to].len()), t[v].l + (t[v].par == 0), t[v].r));
 		}
 
@@ -118,7 +120,7 @@ namespace {
 				//go to next suffix using suffix link and updates suffix link inside if required
 				ptr.v = get_link(mid);
 				ptr.pos = t[ptr.v].len();
-				if (!mid)  
+				if (!mid)
 					break; //if parent of leaf is root
 			}
 		}
@@ -337,12 +339,133 @@ namespace {
 
 	}
 
-	TEST(ukkonen_alg_test, longest_common_substring_first_index) {
-		//optimization to get first index
+	ll ed5f_solve(const vector<string>& strv, const vector<int>& prv) {
+		vector<int> s;
+
+		vector<int> pr;
+		int sep = 1000;
+		vector<int> sz;
+		for (int i = 0; i < strv.size(); i++)
+		{
+			for (int j = 0; j < strv[i].size() + 1; j++)
+			{
+				if (j < strv[i].size()) {
+					s.push_back(strv[i][j]);
+					sz.push_back(strv[i].size());
+				}
+				else {
+					s.push_back(sep++);
+					sz.push_back(0);
+				}
+				pr.push_back(prv[i]);
+			}
+		}
+
+
+		/***********************/
+		emaxx_ukkonen<int> t((int)s.size());
+		t.s = move(s);
+		t.build_tree();
+		/***********************/
+		ll mx_pr = 0;
+
+		vector<bool> used(t.t.size()); ///t.size()!
+		vector<ll> prices(t.t.size()); ///t.size()!
+		int depth = 0;
+		function<ll(int)> dfs_init = [&](int v) {
+			used[v] = 1;
+
+			ll res = 0;
+
+			depth += t.t[v].len();
+
+			bool is_leaf = t.t[v].is_leaf();
+			int start = t.n - depth;
+			if (is_leaf) {
+				res = pr[start];
+			}
+
+			for (const auto& u : t.t[v].next) {
+				if (used[u.second])
+					continue;
+				auto prs = dfs_init(u.second);
+				res += prs;
+			}
+
+			if (!is_leaf) {
+				prices[v] = res * depth;
+			}
+			else
+				prices[v] = res;
+
+			depth -= t.t[v].len();
+			return res;
+		};
+
+		dfs_init(0);
+
+		fill(begin(used), end(used), 0);
+
+		depth = 0;
+		function<void(int)> dfs_search = [&](int v) {
+			used[v] = 1;
+
+			depth += t.t[v].len();
+
+			bool is_leaf = t.t[v].is_leaf();
+			if (!is_leaf) {
+				if (v > 0 && prices[v] > mx_pr)
+					mx_pr = prices[v];
+			}
+			else {
+				int start = t.t[v].l;
+				ll pr = prices[v] * sz[start];
+				if (pr > mx_pr) {
+					mx_pr = pr;
+				}
+			}
+
+			for (const auto& u : t.t[v].next) {
+				if (used[u.second])
+					continue;
+
+				dfs_search(u.second);
+			}
+
+			depth -= t.t[v].len();
+		};
+
+		dfs_search(0);
+		return mx_pr;
 	}
 
 	TEST(ukkonen_alg_test, ed5f_test) {
 		//https://codeforces.com/contest/616/problem/F
+
+		vector<string> strv1 = { "aa", "bb" };
+		vector<int> prv1 = { 2, 1 };
+		ll res = ed5f_solve(strv1, prv1);
+		EXPECT_EQ(4, res);
+
+		vector<string> strv2 = { "aa", "ab" };
+		vector<int> prv2 = { 2, 1 };
+		res = ed5f_solve(strv2, prv2);
+		EXPECT_EQ(5, res);
+
+		vector<string> strv3 = { "ab" };
+		vector<int> prv3 = { 2 };
+		res = ed5f_solve(strv3, prv3);
+		EXPECT_EQ(4, res);
+
+		vector<string> strv4 = { "aaa", "aaa" };
+		vector<int> prv4 = { 1, -1 };
+		res = ed5f_solve(strv4, prv4);
+		EXPECT_EQ(0, res);
+
+		vector<string> strv5 = { "aab", "aaa" };
+		vector<int> prv5 = { 1,-1 };
+		res = ed5f_solve(strv5, prv5);
+		EXPECT_EQ(3, res);
 	}
 
 	/***********************/
