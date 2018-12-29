@@ -62,6 +62,12 @@
     <Filter Include="Strings\Palindromes">
       <UniqueIdentifier>{2dc6c991-e64a-4f63-9d67-5e04449004df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Structures\FenwickTree">
+      <UniqueIdentifier>{c6437cf4-915f-4dd2-8e94-268a841dc91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Methods">
+      <UniqueIdentifier>{fdca492c-138b-422e-aa23-361912144b7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -130,6 +136,12 @@
     </ClCompile>
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp">
       <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree.cpp">
+      <Filter>Structures\FenwickTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\methods\binary_search.cpp">
+      <Filter>Methods</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
