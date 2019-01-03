@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Graphs">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Graphs\LCA">
+      <UniqueIdentifier>{8135cd7a-95dd-4cfe-ad3a-295bf946cd41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphs\MST">
+      <UniqueIdentifier>{2a2f8ec9-ff18-41a4-aba2-5cb05671fb42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures">
+      <UniqueIdentifier>{e537e825-1f3b-45f3-b1f6-e4f56b8ac3c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures\DSU">
+      <UniqueIdentifier>{c0949602-ba9d-428e-b9c7-4f0f4b8282d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{56141fc6-07bc-43b1-a640-7edba93fc5a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory">
+      <UniqueIdentifier>{6bc631e1-c7d3-471f-8bbd-30cd21cb0837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\Primes">
+      <UniqueIdentifier>{bcb0c6ee-e30a-4b23-909a-9c2c01aad699}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphs\DFS">
+      <UniqueIdentifier>{24d4cee2-a40d-4289-bf65-679d7690ddc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\GCD">
+      <UniqueIdentifier>{3b3fa8eb-58b6-43cc-9fa2-6f044d593e93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\FFT">
+      <UniqueIdentifier>{64f923b3-4f7f-4d60-b4f9-50ad8d9afd8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\ExpBySquaring">
+      <UniqueIdentifier>{672ef78f-0d0a-4958-8d6b-0c273324aec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\InverseModRing">
+      <UniqueIdentifier>{b49209f6-3512-4fc3-b75f-93236d8611f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphs\Bridges">
+      <UniqueIdentifier>{59a4c5d9-cce0-49e7-9ace-9ec156c402f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\Progressions">
+      <UniqueIdentifier>{210f19a4-5a8f-42a4-b259-5564dcacd232}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures\SegmentTree">
+      <UniqueIdentifier>{70bbe27a-f5a1-4864-9b0a-a110c6b8eba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{b974b703-4196-4572-b9dd-b9b280cab724}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\SuffixTree">
+      <UniqueIdentifier>{d1e5b349-3db6-4292-97e7-eefffec830c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NumberTheory\BigInt">
+      <UniqueIdentifier>{72089adc-fa70-4e13-b286-fcbcf3808f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\Palindromes">
+      <UniqueIdentifier>{2dc6c991-e64a-4f63-9d67-5e04449004df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Structures\FenwickTree">
+      <UniqueIdentifier>{c6437cf4-915f-4dd2-8e94-268a841dc91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Methods">
+      <UniqueIdentifier>{fdca492c-138b-422e-aa23-361912144b7d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\graphs\lca\binary_lifting.cpp">
+      <Filter>Graphs\LCA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\mst\kruskal_mst.cpp">
+      <Filter>Graphs\MST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\dsu\dsu.cpp">
+      <Filter>Structures\DSU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\mst\prim_mst.cpp">
+      <Filter>Graphs\MST</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp">
+      <Filter>NumberTheory\Primes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\dfs\dfs_test.cpp">
+      <Filter>Graphs\DFS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\fft\emaxx_fft_test.cpp">
+      <Filter>NumberTheory\FFT</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp">
+      <Filter>NumberTheory\ExpBySquaring</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\gcd\gcd_tests.cpp">
+      <Filter>NumberTheory\GCD</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp">
+      <Filter>NumberTheory\InverseModRing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\lca\binary_lifting_dp.cpp">
+      <Filter>Graphs\LCA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\bridges\bridges_search.cpp">
+      <Filter>Graphs\Bridges</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp">
+      <Filter>NumberTheory\Progressions</Filter>
+    </ClCompile>
+    <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp">
+      <Filter>Strings\SuffixTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp">
+      <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\max_triangle_square.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\complex_numbers.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\rotating_calipers.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\bigint\bigint.cpp">
+      <Filter>NumberTheory\BigInt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\strings\palindromes\manacher_algo.cpp">
+      <Filter>Strings\Palindromes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp">
+      <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree.cpp">
+      <Filter>Structures\FenwickTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\methods\binary_search.cpp">
+      <Filter>Methods</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\structures\dsu\dsu.h">
+      <Filter>Structures\DSU</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
