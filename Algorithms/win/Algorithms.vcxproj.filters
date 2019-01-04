@@ -68,6 +68,9 @@
     <Filter Include="Methods">
       <UniqueIdentifier>{fdca492c-138b-422e-aa23-361912144b7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{f674ac9e-7ab3-4fd6-925b-20f91e8db88b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -143,10 +146,14 @@
     <ClCompile Include="..\methods\binary_search.cpp">
       <Filter>Methods</Filter>
     </ClCompile>
+    <ClCompile Include="..\math\permutations.cpp">
+      <Filter>Math</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">
       <Filter>Structures\DSU</Filter>
     </ClInclude>
+    <ClInclude Include="..\common.h" />
   </ItemGroup>
 </Project>

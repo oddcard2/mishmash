@@ -131,6 +131,7 @@
     <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
     <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\math\permutations.cpp" />
     <ClCompile Include="..\methods\binary_search.cpp" />
     <ClCompile Include="..\number_theory\bigint\bigint.cpp" />
     <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp" />
@@ -147,6 +148,7 @@
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\common.h" />
     <ClInclude Include="..\structures\dsu\dsu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -10,7 +10,8 @@ Windows
 5. Open console
 6. cd googletest-release-1.8.1\googletest
 7. mkdir build
-8. cmake -G "Visual Studio 15 2017 Win64" ..
-9. Open solution googletest-release-1.8.1\googletest\build\gtest.sln
-10. Build soluition
+8. cd build
+9. cmake -G "Visual Studio 15 2017 Win64" ..
+10. Open solution googletest-release-1.8.1\googletest\build\gtest.sln
+11. Build soluition
 
