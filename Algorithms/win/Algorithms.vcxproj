@@ -132,7 +132,8 @@
     <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
     <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\math\permutations.cpp" />
+    <ClCompile Include="..\math\permutations\permutations_cycles.cpp" />
+    <ClCompile Include="..\math\permutations\permutations_inversions.cpp" />
     <ClCompile Include="..\methods\binary_search.cpp" />
     <ClCompile Include="..\number_theory\bigint\bigint.cpp" />
     <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp" />

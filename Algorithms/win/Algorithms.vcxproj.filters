@@ -77,6 +77,9 @@
     <Filter Include="Problems\LongestSubsequence">
       <UniqueIdentifier>{83b37f32-b78e-44b5-8ab2-c24ebba53936}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Math\Permutations">
+      <UniqueIdentifier>{598177d8-5022-41e7-a9a6-44aa748891cb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -152,9 +155,6 @@
     <ClCompile Include="..\methods\binary_search.cpp">
       <Filter>Methods</Filter>
     </ClCompile>
-    <ClCompile Include="..\math\permutations.cpp">
-      <Filter>Math</Filter>
-    </ClCompile>
     <ClCompile Include="..\geometry\points_and_vectors.cpp">
       <Filter>Geometry</Filter>
     </ClCompile>
@@ -163,6 +163,12 @@
     </ClCompile>
     <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_fenwick.cpp">
       <Filter>Problems\LongestSubsequence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\math\permutations\permutations_cycles.cpp">
+      <Filter>Math\Permutations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\math\permutations\permutations_inversions.cpp">
+      <Filter>Math\Permutations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
