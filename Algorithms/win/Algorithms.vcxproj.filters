@@ -71,6 +71,12 @@
     <Filter Include="Math">
       <UniqueIdentifier>{f674ac9e-7ab3-4fd6-925b-20f91e8db88b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Problems">
+      <UniqueIdentifier>{49a157cd-157d-48b4-beda-18c823faa775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Problems\LongestSubsequence">
+      <UniqueIdentifier>{83b37f32-b78e-44b5-8ab2-c24ebba53936}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -151,6 +157,12 @@
     </ClCompile>
     <ClCompile Include="..\geometry\points_and_vectors.cpp">
       <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_binsearch.cpp">
+      <Filter>Problems\LongestSubsequence</Filter>
+    </ClCompile>
+    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_fenwick.cpp">
+      <Filter>Problems\LongestSubsequence</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

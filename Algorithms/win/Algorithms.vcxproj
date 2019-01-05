@@ -141,6 +141,8 @@
     <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp" />
     <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp" />
     <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp" />
+    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_binsearch.cpp" />
+    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_fenwick.cpp" />
     <ClCompile Include="..\strings\palindromes\manacher_algo.cpp" />
     <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />

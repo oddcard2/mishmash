@@ -2,6 +2,8 @@
 #define ALGORITHMS_COMMON_H_
 
 #include <vector>
+#include <functional>
+
 using namespace std;
 
 ////////////
