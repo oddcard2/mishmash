@@ -123,6 +123,7 @@
     <ClCompile Include="..\geometry\complex_numbers.cpp" />
     <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
     <ClCompile Include="..\geometry\max_triangle_square.cpp" />
+    <ClCompile Include="..\geometry\points_and_vectors.cpp" />
     <ClCompile Include="..\geometry\rotating_calipers.cpp" />
     <ClCompile Include="..\graphs\bridges\bridges_search.cpp" />
     <ClCompile Include="..\graphs\dfs\dfs_test.cpp" />

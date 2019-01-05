@@ -7,8 +7,8 @@ typedef long long ll;
 
 struct pt {
 	typedef ll T;
-	ll x;
-	ll y;
+	T x;
+	T y;
 
 	pt() {}
 	pt(T x, T y) :x(x), y(y) {}
@@ -39,11 +39,13 @@ static pt::T dot(pt a, pt b) {
 	return a.x*b.x + a.y*b.y;
 }
 
+// > 0, if a clockwise b, for example a=(1,0),b=(-1,1) 
 static pt::T cross(pt a, pt b) {
 	return a.x*b.y - a.y*b.x;
 }
 
-//between b-a and c-a
+//between b - a and c - a
+// > 0 if ab clockwise ac
 static pt::T cross(pt a, pt b, pt c) {
 	return cross(b - a, c - a);
 }

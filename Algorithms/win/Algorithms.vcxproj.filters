@@ -149,6 +149,9 @@
     <ClCompile Include="..\math\permutations.cpp">
       <Filter>Math</Filter>
     </ClCompile>
+    <ClCompile Include="..\geometry\points_and_vectors.cpp">
+      <Filter>Geometry</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">
