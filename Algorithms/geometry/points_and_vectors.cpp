@@ -62,6 +62,39 @@ namespace {
 	}
 	/***********************/
 
+	//Sorting by polar angle and finds nearests
+	pair<pt, pt> get_nearests_by_angle(vector<pt>& p) {
+
+		auto cmp = [](const pt& a, const pt& b) {
+			bool isbtna = a.y < 0 || (a.y == 0 && a.x > 0);
+			bool isbtnb = b.y < 0 || (b.y == 0 && b.x > 0);
+			if (isbtna != isbtnb)
+				return isbtna;
+			return cross(a, b) < 0;
+		};
+
+		sort(begin(p), end(p), cmp);
+
+		pt a = p[0], b = p[1];
+		auto measure = [&](const pt& a1, const pt& b1, const pt& a2, const pt& b2) {
+			pt p1(dot(a1, b1), cross(a1, b1));
+			pt p2(dot(a2, b2), cross(a2, b2));
+
+			p1.y = abs(p1.y);
+			p2.y = abs(p2.y);
+			return cmp(p2, p1);
+		};
+		int n = sz(p);
+		for (int i = 0; i < n; i++)
+		{
+			int next = (i + 1) % n;
+			if (measure(p[i], p[next], a, b)) {
+				tie(a, b) = tie(p[i], p[next]);
+			}
+		}
+		return { a,b };
+	}
+
 	TEST(points_and_vectors_tests, cross_mul_test) {
 
 		pt a(3, 1), b(5,5), c(-5,3), d(-3,-3);
@@ -74,5 +107,12 @@ namespace {
 		EXPECT_TRUE(cross(c, b, a) < 0);
 	}
 
+	TEST(points_and_vectors_tests, nearests_by_angle_test) {
+		vector<pt> p = { pt(2, 2), pt(1, 0), pt(-1, 0), pt(-1, -1), pt(0,1), pt(1,2) };
+		auto res = get_nearests_by_angle(p);
+
+		EXPECT_TRUE(res.first == pt(2, 2) || res.second == pt(2, 2));
+		EXPECT_TRUE(res.first == pt(1, 2) || res.second == pt(1, 2));
+	}
 }
 
