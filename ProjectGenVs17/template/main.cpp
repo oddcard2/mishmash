@@ -33,8 +33,8 @@ typedef tuple<int, int, int> tri;
 #define sz(a) int((a).size())
 #define pb(a) push_back(a)
 #define mp(x, y) make_pair((x), (y))
-#define x first
-#define y second
+//#define x first
+//#define y second
 
 using namespace std;
 
