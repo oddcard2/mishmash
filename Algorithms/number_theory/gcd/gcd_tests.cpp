@@ -4,7 +4,8 @@
 using namespace std;
 
 namespace {
-	int gcd(int a, int b) {
+	template<typename T>
+	T gcd(T a, T b) {
 		while (b) {
 			a %= b;
 			swap(a, b);
@@ -12,13 +13,14 @@ namespace {
 		return a;
 	}
 
-	int gcdex(int a, int b, int & x, int & y) {
+	template<typename T>
+	T gcdex(T a, T b, T & x, T & y) {
 		if (a == 0) {
 			x = 0; y = 1;
 			return b;
 		}
-		int x1, y1;
-		int d = gcdex(b%a, a, x1, y1);
+		T x1, y1;
+		T d = gcdex(b%a, a, x1, y1);
 		x = y1 - (b / a) * x1;
 		y = x1;
 		return d;
