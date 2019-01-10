@@ -170,6 +170,9 @@
     <ClCompile Include="..\math\permutations\permutations_inversions.cpp">
       <Filter>Math\Permutations</Filter>
     </ClCompile>
+    <ClCompile Include="..\number_theory\primes\eratosthenes_sieve.cpp">
+      <Filter>NumberTheory\Primes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">

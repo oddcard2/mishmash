@@ -140,6 +140,7 @@
     <ClCompile Include="..\number_theory\fft\emaxx_fft_test.cpp" />
     <ClCompile Include="..\number_theory\gcd\gcd_tests.cpp" />
     <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp" />
+    <ClCompile Include="..\number_theory\primes\eratosthenes_sieve.cpp" />
     <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp" />
     <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp" />
     <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_binsearch.cpp" />
