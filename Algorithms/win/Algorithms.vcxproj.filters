@@ -80,6 +80,9 @@
     <Filter Include="Math\Permutations">
       <UniqueIdentifier>{598177d8-5022-41e7-a9a6-44aa748891cb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphs\Connectivity">
+      <UniqueIdentifier>{df8f176a-a160-4d20-ae25-fa182e1f909c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -172,6 +175,15 @@
     </ClCompile>
     <ClCompile Include="..\number_theory\primes\eratosthenes_sieve.cpp">
       <Filter>NumberTheory\Primes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\connectivity\connected_components_search.cpp">
+      <Filter>Graphs\Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\connectivity\edge_connectivity.cpp">
+      <Filter>Graphs\Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\graphs\connectivity\vertex_connectivity.cpp">
+      <Filter>Graphs\Connectivity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
