@@ -67,6 +67,46 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	int n;
+	cin >> n;
+
+	vi m;
+	
+	int sq = sqrt(n);
+	int start = 2;
+	while (n > 1) {
+		for (int i = start; i <= n; i++) {
+			if (n%i == 0) {
+				do {
+					n /= i;
+					m.push_back(i);
+				} while (n > 1 && n%i == 0);
+
+				start = i + 1;
+				break;
+			}
+		}
+	}
+
+	sort(all(m));
+
+	for (int i = 0; i < sz(m);) {
+		int v = m[i];
+		cout << v;
+
+		int cnt = 0;
+		for (; i < sz(m); i++) {
+			if (m[i] != v)
+				break;
+			cnt++;
+		}
+		if (cnt>1)
+			cout << "^" << cnt;
+
+		if (i < sz(m))
+			cout << "*";
+	}
 	
 	return 0;
 }

@@ -67,6 +67,25 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	
+
+	ll n;
+	cin >> n;
+
+	ll ans = 0;
+	if (n == 2) {
+		ans = 2;
+	}
+	else {
+		int sq = sqrt(n);
+		for (ll i = 2; i <= sq; i++) {
+			if (n % i == 0) {
+				ans = i;
+				break;
+			}
+		}
+	}
+	if (!ans)
+		ans = n;
+	cout << ans;
 	return 0;
 }

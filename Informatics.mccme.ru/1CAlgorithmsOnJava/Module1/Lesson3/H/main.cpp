@@ -67,6 +67,34 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	ll n;
+	cin >> n;
+
+	int cnt = 0;
+	ll sq = sqrt(n);
+
+	auto is_prime = [](ll m) {
+		if (m % 2 == 0)
+			return m==2;
+		ll square = sqrt(m);
+		for (ll i = 2; i <= square; i++) {
+			if (m%i == 0)
+				return false;
+		}
+		return true;
+	};
+
+	bool res = false;
+	for (ll i = 2; i <= sq; i++) {
+		if (n%i == 0) {
+			if (is_prime(i) && is_prime(n / i) && i != n/i) {
+				res = true;
+			}
+		}
+	}
+
+	cout << (res ? "YES" : "NO");
 	
 	return 0;
 }

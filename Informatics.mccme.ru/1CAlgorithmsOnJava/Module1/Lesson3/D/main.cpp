@@ -68,5 +68,32 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	
+	int n, m, k;
+	cin >> n >> m >> k;
+
+	int ans = 0;
+	if (k >= 3) {
+		ans = n / (k - 2);
+		int last_children_num = n % (k - 2);
+		if (last_children_num != 0) {
+			ans++;
+		}
+
+		if (2 * ans > m)
+			ans = 0;
+		else {
+			m -= 2 * ans;
+
+			if (m > 0) {
+				m = max(0, m - ((k-2)- last_children_num));
+				if (m > 0) {
+					ans += m / k + ((m%k) ? 1:0);
+				}
+			}
+		}
+	}
+
+	cout << ans;
+
 	return 0;
 }

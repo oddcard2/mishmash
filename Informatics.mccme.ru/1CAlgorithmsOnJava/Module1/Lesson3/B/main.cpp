@@ -67,6 +67,16 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	int k;
+	cin >> k;
+
+	if (k == 1 || k % 4 == 0) {
+		cout << "YES";
+	}
+	else {
+		cout << "NO";
+	}
 	
 	return 0;
 }

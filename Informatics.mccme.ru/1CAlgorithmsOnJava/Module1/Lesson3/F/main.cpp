@@ -67,6 +67,25 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	ll n;
+	cin >> n;
+
+	vi ans;
+	while (n >= 10 && n % 10 == 0) n /= 10;
+
+	if (n == 0)
+		ans.push_back(0);
+	else {
+		while (n > 0) {
+			ans.push_back(n % 10);
+			n /= 10;
+		}
+	}
+
+	for (auto d : ans) {
+		cout << d;
+	}
 	
 	return 0;
 }

@@ -67,6 +67,43 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	int n;
+	cin >> n;
+
+	bool ok = false;
+	int sum = 0;
+	int len = 0;
+	int curr = 1;
+	for (int i = 0; i <= n; i++) {
+		int rem = curr % n;
+		sum += rem;
+		if (sum > n)
+			sum %= n;
+
+		if (sum%n == 0) {
+			len = i + 1;
+			ok = true;
+			break;
+		}
+		//if (i > 0 && rem == 1) {
+		//	break;
+		//}
+		
+		curr *= 10;
+		if (curr > n)
+			curr %= n;
+	}
+
+	if (ok) {
+		stringstream ss;
+		for (int i = 0; i < len; i++) {
+			ss << "1";
+		}
+		cout << ss.str();
+	}
+	else
+		cout << "NO";
 	
 	return 0;
 }
