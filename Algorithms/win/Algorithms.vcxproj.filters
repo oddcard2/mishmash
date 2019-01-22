@@ -83,6 +83,9 @@
     <Filter Include="Graphs\Connectivity">
       <UniqueIdentifier>{df8f176a-a160-4d20-ae25-fa182e1f909c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="NumberTheory\DiofantEquations">
+      <UniqueIdentifier>{d065d0a2-e42d-40c5-8697-a8886c92de9e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -184,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="..\graphs\connectivity\vertex_connectivity.cpp">
       <Filter>Graphs\Connectivity</Filter>
+    </ClCompile>
+    <ClCompile Include="..\number_theory\diofant_equations\diofant_2_equation_tests.cpp">
+      <Filter>NumberTheory\DiofantEquations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
