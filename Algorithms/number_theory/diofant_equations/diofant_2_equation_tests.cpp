@@ -19,6 +19,7 @@ namespace {
 		return d;
 	}
 
+	//!!! Don't forget to check return value!!!
 	template<typename T>
 	bool find_any_solution(T a, T b, T c, T & x0, T & y0, T & g) {
 		g = gcdex(abs(a), abs(b), x0, y0);
