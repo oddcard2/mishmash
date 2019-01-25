@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\examples\interactive_problem_example.cpp" />
     <ClCompile Include="..\geometry\complex_numbers.cpp" />
     <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
     <ClCompile Include="..\geometry\max_triangle_square.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp" />
     <ClCompile Include="..\structures\dsu\dsu.cpp" />
     <ClCompile Include="..\structures\fenwick_tree\fenwick_tree.cpp" />
+    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree_min_idx.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp" />
   </ItemGroup>

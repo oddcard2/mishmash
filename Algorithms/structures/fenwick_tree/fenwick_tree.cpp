@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <vector>
+#include "common.h"
 
 using namespace std;
 
@@ -25,6 +25,7 @@ namespace {
 				inc(i, a[i]);
 		}
 
+		//i is range [0,n-1], calc for [0,r]
 		int sum(int r)
 		{
 			int result = 0;
@@ -33,12 +34,15 @@ namespace {
 			return result;
 		}
 
+		//i is range [0,n-1]
 		void inc(int i, int delta)
 		{
 			for (; i < n; i = (i | (i + 1)))
 				t[i] += delta;
 		}
 
+		//l,r is range [0,n-1]
+		//calcs for [l,r]
 		int sum(int l, int r)
 		{
 			return sum(r) - sum(l - 1);
@@ -66,6 +70,7 @@ namespace {
 				set(i, a[i]);
 		}
 
+		//i is range [0,n-1], calc for [0,r]
 		int max(int r)
 		{
 			int result = numeric_limits<int>::min();
@@ -76,6 +81,7 @@ namespace {
 
 		//NB: we can only INCREASE values! Because max has no inverse function
 		//    for min we can only DECREASE values!
+		//i is range [0,n-1]
 		void set(int i, int val)
 		{
 			for (; i < n; i = (i | (i + 1)))
@@ -84,7 +90,7 @@ namespace {
 	};
 	/***********************/
 
-	TEST(fenwick_sum_tests, simple_test) {
+	TEST(fenwick_tree_tests, sum_test) {
 		fenwick_tree t1(10);
 
 		t1.inc(0, 1);
@@ -105,7 +111,7 @@ namespace {
 		EXPECT_EQ(0, t1.sum(0, 9));
 	}
 
-	TEST(fenwick_max_tests, simple_test) {
+	TEST(fenwick_tree_tests, max_test) {
 		fenwick_tree_max t(10);
 
 		EXPECT_EQ(0, t.max(9));

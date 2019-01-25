@@ -86,6 +86,9 @@
     <Filter Include="NumberTheory\DiofantEquations">
       <UniqueIdentifier>{d065d0a2-e42d-40c5-8697-a8886c92de9e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Examples">
+      <UniqueIdentifier>{7dd4ee0c-372d-422e-a40c-05034597a02d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -190,6 +193,12 @@
     </ClCompile>
     <ClCompile Include="..\number_theory\diofant_equations\diofant_2_equation_tests.cpp">
       <Filter>NumberTheory\DiofantEquations</Filter>
+    </ClCompile>
+    <ClCompile Include="..\examples\interactive_problem_example.cpp">
+      <Filter>Examples</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree_min_idx.cpp">
+      <Filter>Structures\FenwickTree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
