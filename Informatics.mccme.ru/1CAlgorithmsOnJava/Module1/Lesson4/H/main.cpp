@@ -65,9 +65,31 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 
 ////////////
 
+
+template<typename T>
+T gcd(T a, T b) {
+	while (b) {
+		a %= b;
+		swap(a, b);
+	}
+	return a;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	int a, b, c, d;
+	cin >> a >> b >> c >> d;
+
+	if (a == c || b == d) {
+		cout << "0";
+		return 0;
+	}
+
+	int dx = abs(a - c);
+	int dy = abs(b - d);
+	cout << (dx + dy - 1) - (gcd(dx, dy) - 1);
 	
 	return 0;
 }
