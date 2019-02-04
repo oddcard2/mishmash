@@ -200,6 +200,9 @@
     <ClCompile Include="..\structures\fenwick_tree\fenwick_tree_min_idx.cpp">
       <Filter>Structures\FenwickTree</Filter>
     </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\segment_tree_minmax.cpp">
+      <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">
