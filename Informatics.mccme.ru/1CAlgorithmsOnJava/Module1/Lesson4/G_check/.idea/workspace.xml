@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cecb7a18-bc8d-4878-ab39-b0282fad53cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Algorithms/win/Algorithms.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Algorithms/win/Algorithms.vcxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../Algorithms/win/Algorithms.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Algorithms/win/Algorithms.vcxproj.filters" afterDir="false" />
-    </list>
+    <list default="true" id="cecb7a18-bc8d-4878-ab39-b0282fad53cc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -126,6 +122,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1036" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36734694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

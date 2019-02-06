@@ -65,9 +65,65 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 
 ////////////
 
+template<typename T>
+T gcd(T a, T b) {
+	while (b) {
+		a %= b;
+		swap(a, b);
+	}
+	return a;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	int a, b;
+	cin >> a >> b;
+
+	if (a == b) {
+		cout << "YES";
+		return 0;
+	}
+	if ((a + b) % 2 != 0) {
+		cout << "NO";
+		return 0;
+	}
+
+	while (a != 1 && b != 1) {
+		int g = gcd(a, b);
+		a /= g;
+		b /= g;
+
+		if (a>1 && b>1 && (a + b) % 2 != 0) {
+			cout << "NO";
+			return 0;
+		}
+
+		if (a > b) {
+			swap(a, b);
+		}
+
+		b -= a;
+		a *= 2;
+	}
+	if (a > b) {
+		swap(a, b);
+	}
+	if (a == 1 && b == 1) {
+		cout << "YES";
+		return 0;
+	}
+	
+	b += a;
+	while (b > 1) {
+		if (b % 2 != 0) {
+			cout << "NO";
+			return 0;
+		}
+		b /= 2;
+	}
+	cout << "YES";
 	
 	return 0;
 }
