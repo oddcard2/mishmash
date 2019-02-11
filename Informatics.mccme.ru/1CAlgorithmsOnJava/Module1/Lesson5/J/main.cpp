@@ -1,8 +1,4 @@
-#ifndef ALGORITHMS_COMMON_H_
-#define ALGORITHMS_COMMON_H_
-
-#include <vector>
-#include <functional>
+#include "bits/stdc++.h"
 
 using namespace std;
 
@@ -11,11 +7,11 @@ using namespace std;
 const int mod = 1000000007;
 
 template<typename T>
-inline int add(T a, T b) { return a + b >= mod ? a + b - mod : a + b; }
+inline T add(T a, T b) { return a + b >= mod ? a + b - mod : a + b; }
 template<typename T>
 inline void inc(T& a, T b) { a = add(a, b); }
 template<typename T>
-inline int sub(T a, T b) { return a - b < 0 ? a - b + mod : a - b; }
+inline T sub(T a, T b) { return a - b < 0 ? a - b + mod : a - b; }
 template<typename T>
 inline void dec(T& a, T b) { a = sub(a, b); }
 
@@ -67,8 +63,40 @@ int n; cin >> n;\
 vi v(n+1); \
 for (int i = 0; i < n; i++) cin >> v[i+1];
 
-
 ////////////
 
-#endif
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
+	int n;
+	cin >> n;
+	vll v(n);
+	forn(i, n)
+		cin >> v[i];
+
+	ll mx = -INF64;
+	int bs = 0, be = 0;
+	ll curr = -INF64;
+	int s = 0;
+	int e = 0;
+	forn(i, n) {
+		if (curr > 0) {
+			curr += v[i];
+			e++;
+		}
+		else {
+			s = i;
+			e = i;
+			curr = v[i];
+		}
+		if (curr > mx) {
+			mx = curr;
+			tie(bs, be) = tie(s, e);
+		}
+	}
+
+	cout << bs+1 << " " << be+1 << " " << mx;
+	
+	return 0;
+}

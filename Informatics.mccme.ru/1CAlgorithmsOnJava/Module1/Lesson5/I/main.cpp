@@ -64,39 +64,67 @@ vi v(n+1); \
 for (int i = 0; i < n; i++) cin >> v[i+1];
 
 ////////////
-template<typename T>
-T gcd(T a, T b) {
-	while (b) {
-		a %= b;
-		swap(a, b);
-	}
-	return a;
-}
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
-	int n, m;
-	cin >> n >> m;
+	int n;
+	cin >> n;
+	vll v(n);
+	forn(i, n)
+		cin >> v[i];
 
-	if (n == 1) {
-		cout << m;
-		return 0;
+	vll elems;
+
+	auto pos = std::partition(all(v), [](int a) { return a <= 0; });
+	if (pos == end(v)) { //no pos
+		if (v.size() <= 6) {
+			elems = v;
+		}
+		else {
+			nth_element(begin(v), begin(v) + 3, end(v));
+			elems.insert(end(elems), begin(v), begin(v) + 3);
+			nth_element(begin(v), end(v) - 3, end(v));
+			elems.insert(end(elems), end(v)-3, end(v));
+		}
 	}
-	if (m == 1) {
-		cout << n;
-		return 0;
+	else {
+		auto negs = distance(begin(v), pos);
+		if (negs <= 6) {
+			elems.insert(end(elems), begin(v), pos);
+		}
+		else {
+			nth_element(begin(v), begin(v) + 3, pos);
+			elems.insert(end(elems), begin(v), begin(v) + 3);
+			nth_element(begin(v), pos - 3, pos);
+			elems.insert(end(elems), pos - 3, pos);
+		}
+		if (v.size() - negs <= 6) {
+			elems.insert(end(elems), pos, end(v)); //pos
+		}
+		else {
+			nth_element(pos, pos + 3, end(v));
+			elems.insert(end(elems), pos, pos + 3);
+			nth_element(pos, end(v) - 3, end(v));
+			elems.insert(end(elems), end(v) - 3, end(v));
+		}
 	}
+	int ii, jj, kk;
+	ll mx = numeric_limits<ll>::min();
+	for (int i = 0; i < sz(elems)-2; i++) {
+		for (int j = i + 1; j < sz(elems) - 1; j++) {
+			for (int k = j + 1; k < sz(elems); k++) {
+				if (elems[i] * elems[j] * elems[k] > mx) {
+					tie(ii, jj, kk) = tie(i, j, k);
+					mx = elems[i] * elems[j] * elems[k];
+				}
+			}
+		}
+	}
+
+
+	cout << elems[ii] << " " << elems[jj] << " " << elems[kk];
 	
-	int g = gcd(n-1, m-1);
-
-	//x(n-1)=y(m-1)
-	//(m-1)/gcd<=x<=m-1
-	//(n-1)/gcd<=y<=n-1
-	//x = ((m-1)/gcd)*k, k=[0,gcd]
-	//y = ((n-1)/gcd)*k, k=[0,gcd]
-	cout << g + 1; //+1- trivial solution (x=0,y=0)
-
 	return 0;
 }

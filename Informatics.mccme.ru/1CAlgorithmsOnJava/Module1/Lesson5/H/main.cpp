@@ -1,8 +1,4 @@
-#ifndef ALGORITHMS_COMMON_H_
-#define ALGORITHMS_COMMON_H_
-
-#include <vector>
-#include <functional>
+#include "bits/stdc++.h"
 
 using namespace std;
 
@@ -11,11 +7,11 @@ using namespace std;
 const int mod = 1000000007;
 
 template<typename T>
-inline int add(T a, T b) { return a + b >= mod ? a + b - mod : a + b; }
+inline T add(T a, T b) { return a + b >= mod ? a + b - mod : a + b; }
 template<typename T>
 inline void inc(T& a, T b) { a = add(a, b); }
 template<typename T>
-inline int sub(T a, T b) { return a - b < 0 ? a - b + mod : a - b; }
+inline T sub(T a, T b) { return a - b < 0 ? a - b + mod : a - b; }
 template<typename T>
 inline void dec(T& a, T b) { a = sub(a, b); }
 
@@ -67,8 +63,39 @@ int n; cin >> n;\
 vi v(n+1); \
 for (int i = 0; i < n; i++) cin >> v[i+1];
 
-
 ////////////
 
-#endif
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
 
+	rvn;
+
+	int cnt = 0, s = -1, e = 0;
+	int mx = 0, ms = 0, me = 0;
+	for (int i = 0; i < n+1; i++) {
+		if (i == n || v[i] == 5) { //end
+			e = i;
+
+			if (s >= 0 && cnt > mx) {
+				//[s,e)
+				mx = cnt;
+				ms = s+1;
+				me = e;
+			}
+			mx = max(mx, cnt);
+			cnt = 0;
+
+			s = -1;
+			continue;
+		}
+		else {
+			if (s == -1)
+				s = i; //start
+			cnt += 5 - v[i];
+		}
+	}
+	cout << ms << " " << me << " " << mx;
+	
+	return 0;
+}

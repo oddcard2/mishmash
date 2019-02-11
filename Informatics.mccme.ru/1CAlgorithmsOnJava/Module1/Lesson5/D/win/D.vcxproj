@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{3A34AF28-ED1D-425E-8A5F-A443B462AB44}</ProjectGuid>
-    <RootNamespace>Algorithms</RootNamespace>
+    <ProjectGuid>{63E78702-840E-41DE-95EF-CF7AB9C4E525}</ProjectGuid>
+    <RootNamespace>D</RootNamespace>
     <WindowsTargetPlatformVersion />
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -82,15 +82,14 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\;..\googletest-release-1.8.1\googletest\include</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>..\googletest-release-1.8.1\googletest\build\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gtestd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(SOLUTIONS_EXE_PATH)' == ''">copy "$(TargetPath)" $(SolutionDir)..\..\Apps\</Command>
+      <Command Condition="'$(SOLUTIONS_EXE_PATH)' != ''">"$(SolutionDir)copy.bat" "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -118,51 +117,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command Condition="'$(SOLUTIONS_EXE_PATH)' == ''">copy "$(TargetPath)" $(SolutionDir)..\..\Apps\</Command>
+      <Command Condition="'$(SOLUTIONS_EXE_PATH)' != ''">"$(SolutionDir)copy.bat" "$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\examples\interactive_problem_example.cpp" />
-    <ClCompile Include="..\geometry\complex_numbers.cpp" />
-    <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
-    <ClCompile Include="..\geometry\max_triangle_square.cpp" />
-    <ClCompile Include="..\geometry\points_and_vectors.cpp" />
-    <ClCompile Include="..\geometry\rotating_calipers.cpp" />
-    <ClCompile Include="..\graphs\bridges\bridges_search.cpp" />
-    <ClCompile Include="..\graphs\connectivity\connected_components_search.cpp" />
-    <ClCompile Include="..\graphs\connectivity\edge_connectivity.cpp" />
-    <ClCompile Include="..\graphs\connectivity\vertex_connectivity.cpp" />
-    <ClCompile Include="..\graphs\dfs\dfs_test.cpp" />
-    <ClCompile Include="..\graphs\lca\binary_lifting.cpp" />
-    <ClCompile Include="..\graphs\lca\binary_lifting_dp.cpp" />
-    <ClCompile Include="..\graphs\mst\kruskal_mst.cpp" />
-    <ClCompile Include="..\graphs\mst\prim_mst.cpp" />
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\math\permutations\permutations_cycles.cpp" />
-    <ClCompile Include="..\math\permutations\permutations_inversions.cpp" />
-    <ClCompile Include="..\methods\binary_search.cpp" />
-    <ClCompile Include="..\number_theory\bigint\bigint.cpp" />
-    <ClCompile Include="..\number_theory\diofant_equations\diofant_2_equation_tests.cpp" />
-    <ClCompile Include="..\number_theory\exponentiating_by_squaring\exponentiating_by_squaring.cpp" />
-    <ClCompile Include="..\number_theory\fft\emaxx_fft_test.cpp" />
-    <ClCompile Include="..\number_theory\gcd\gcd_tests.cpp" />
-    <ClCompile Include="..\number_theory\inverse_by_mod\inverse_at_mod_ring.cpp" />
-    <ClCompile Include="..\number_theory\primes\eratosthenes_sieve.cpp" />
-    <ClCompile Include="..\number_theory\primes\prime_sieve_linear.cpp" />
-    <ClCompile Include="..\number_theory\progressions\arithmetic_progression_test.cpp" />
-    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_binsearch.cpp" />
-    <ClCompile Include="..\problems\longeset_subsequence\longest_subseq_dp_fenwick.cpp" />
-    <ClCompile Include="..\stl\nth_element\nth_element_test.cpp" />
-    <ClCompile Include="..\strings\palindromes\manacher_algo.cpp" />
-    <ClCompile Include="..\strings\suffix_tree\ukkonen_alg.cpp" />
-    <ClCompile Include="..\structures\dsu\dsu.cpp" />
-    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree.cpp" />
-    <ClCompile Include="..\structures\fenwick_tree\fenwick_tree_min_idx.cpp" />
-    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp" />
-    <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp" />
-    <ClCompile Include="..\structures\segment_tree\segment_tree_minmax.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\common.h" />
-    <ClInclude Include="..\structures\dsu\dsu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

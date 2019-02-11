@@ -89,6 +89,12 @@
     <Filter Include="Examples">
       <UniqueIdentifier>{7dd4ee0c-372d-422e-a40c-05034597a02d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{547e16c7-7811-4c62-9005-a815816d90c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL\nth_element">
+      <UniqueIdentifier>{181ac7c1-956e-43cc-bef0-17c2961522bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -202,6 +208,9 @@
     </ClCompile>
     <ClCompile Include="..\structures\segment_tree\segment_tree_minmax.cpp">
       <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\stl\nth_element\nth_element_test.cpp">
+      <Filter>STL\nth_element</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
