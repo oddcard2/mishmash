@@ -19,6 +19,7 @@ typedef long long ll;
 typedef long double ld;
 
 typedef vector<int> vi;
+typedef vector<ll> vll;
 
 typedef pair<int, int> pii;
 typedef pair<ll, int> pli;
@@ -67,6 +68,43 @@ for (int i = 0; i < n; i++) cin >> v[i+1];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+
+	string s;
+	cin >> s;
+
+	//if s is '?'*100 ans = 1978261657756160653623774456
+	//				2^64 =  18446744073709551616
+#if 0 //Catalan numbers
+	vector<vll> dp(sz(s) + 1, vll(sz(s) + 1));
+	dp[0][0] = 1;
+
+	fore(i, 1,sz(s)+1) {
+		for (int b = 0; b < i; b++) { // balance '(' - ')'
+			//try (
+			dp[i][b + 1] += dp[i-1][b];
+			//try )
+			if (b > 0 && dp[i-1][b]>0)
+				dp[i][b-1] += dp[i-1][b];
+		}
+	}
+#else
+	vector<vll> dp(sz(s) + 1, vll(sz(s) + 1));
+	dp[0][0] = 1;
+
+	fore(i, 1, sz(s) + 1) {
+		for (int b = 0; b < i; b++) { // balance '(' - ')'
+			char ss = s[i - 1];
+			if (ss == '?' || ss == '(') {
+				dp[i][b + 1] += dp[i - 1][b];
+			}
+			if (ss == '?' || ss == ')')  {
+				if (b > 0 && dp[i - 1][b] > 0)
+					dp[i][b - 1] += dp[i - 1][b];
+			}
+		}
+	}
+#endif
+	cout << dp[sz(s)][0];
 	
 	return 0;
 }
