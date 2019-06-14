@@ -95,6 +95,9 @@
     <Filter Include="STL\nth_element">
       <UniqueIdentifier>{181ac7c1-956e-43cc-bef0-17c2961522bf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Strings\SuffixAutomation">
+      <UniqueIdentifier>{c1d5cf54-d02a-4b3b-889e-e4a9a2dbabdd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -211,6 +214,9 @@
     </ClCompile>
     <ClCompile Include="..\stl\nth_element\nth_element_test.cpp">
       <Filter>STL\nth_element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\strings\suffix_automation\suffix_automation_my_impl.cpp">
+      <Filter>Strings\SuffixAutomation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
