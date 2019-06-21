@@ -151,6 +151,28 @@ namespace {
 	};
 
 	template<class SA>
+	void do_aa_test(SA& sa) {
+		EXPECT_EQ(3, sa.sz);
+
+		EXPECT_EQ(3, sa.sz);
+		EXPECT_EQ(0, sa.st[1].link);
+		EXPECT_EQ(1, sa.st[2].link);
+
+		EXPECT_EQ(1, sa.st[0].next.size());
+		EXPECT_EQ(1, sa.st[0].next['a']);
+		EXPECT_EQ(1, sa.st[1].next.size());
+		EXPECT_EQ(2, sa.st[1].next['a']);
+	}
+
+	TEST(suffix_automation_tests, aa_test) {
+		suffix_automation sa("aa");
+		do_aa_test(sa);
+
+		emaxx_suffix_automation esa("aa");
+		do_aa_test(esa);
+	}
+
+	template<class SA>
 	void do_simple_test(SA& sa) {
 		EXPECT_EQ(1, sa.sz);
 
@@ -233,5 +255,23 @@ namespace {
 
 		emaxx_suffix_automation esa("abbbbc");
 		do_abbbbc_test(esa);
+	}
+
+	template<class SA>
+	void do_abab_test(SA& sa) {
+		EXPECT_EQ(5, sa.sz);
+
+		EXPECT_EQ(0, sa.st[1].link);
+		EXPECT_EQ(0, sa.st[2].link);
+		EXPECT_EQ(1, sa.st[3].link);
+		EXPECT_EQ(2, sa.st[4].link);
+	}
+
+	TEST(suffix_automation_tests, abab_test) {
+		suffix_automation sa("abab");
+		do_abab_test(sa);
+
+		emaxx_suffix_automation esa("abab");
+		do_abab_test(esa);
 	}
 }
