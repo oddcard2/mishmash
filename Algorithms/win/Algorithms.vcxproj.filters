@@ -218,6 +218,12 @@
     <ClCompile Include="..\strings\suffix_automation\suffix_automation_my_impl.cpp">
       <Filter>Strings\SuffixAutomation</Filter>
     </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\segment_tree_set.cpp">
+      <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\structures\segment_tree\segment_tree_gaps.cpp">
+      <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\structures\dsu\dsu.h">

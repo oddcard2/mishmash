@@ -159,7 +159,9 @@
     <ClCompile Include="..\structures\fenwick_tree\fenwick_tree_min_idx.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree.cpp" />
     <ClCompile Include="..\structures\segment_tree\emaxx_segment_tree_new_year.cpp" />
+    <ClCompile Include="..\structures\segment_tree\segment_tree_gaps.cpp" />
     <ClCompile Include="..\structures\segment_tree\segment_tree_minmax.cpp" />
+    <ClCompile Include="..\structures\segment_tree\segment_tree_set.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common.h" />
