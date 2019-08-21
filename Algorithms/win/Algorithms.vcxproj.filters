@@ -218,10 +218,10 @@
     <ClCompile Include="..\strings\suffix_automation\suffix_automation_my_impl.cpp">
       <Filter>Strings\SuffixAutomation</Filter>
     </ClCompile>
-    <ClCompile Include="..\structures\segment_tree\segment_tree_set.cpp">
+    <ClCompile Include="..\structures\segment_tree\segment_tree_gaps.cpp">
       <Filter>Structures\SegmentTree</Filter>
     </ClCompile>
-    <ClCompile Include="..\structures\segment_tree\segment_tree_gaps.cpp">
+    <ClCompile Include="..\structures\segment_tree\segment_tree_frogs.cpp">
       <Filter>Structures\SegmentTree</Filter>
     </ClCompile>
   </ItemGroup>
