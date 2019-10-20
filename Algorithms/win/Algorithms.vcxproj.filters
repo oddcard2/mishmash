@@ -98,6 +98,9 @@
     <Filter Include="Strings\SuffixAutomation">
       <UniqueIdentifier>{c1d5cf54-d02a-4b3b-889e-e4a9a2dbabdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bits">
+      <UniqueIdentifier>{46398cee-e379-4bf8-be7b-320f2af3fe5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -223,6 +226,15 @@
     </ClCompile>
     <ClCompile Include="..\structures\segment_tree\segment_tree_frogs.cpp">
       <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bits_count.cpp">
+      <Filter>Bits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bitsmask_iterations.cpp">
+      <Filter>Bits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bit_operations.cpp">
+      <Filter>Bits</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
