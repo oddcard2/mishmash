@@ -29,6 +29,7 @@ typedef pair<int, int> pii;
 typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef tuple<int, int, int> tri;
+typedef tuple<ll, ll, ll> trl;
 
 #define forn(i, n) for (int i = 0; i < int(n); i++)
 #define ford(i, n) for (int i = int(n) - 1; i >= 0; i--)
