@@ -8,34 +8,35 @@ namespace {
 	//http://e-maxx.ru/algo/fenwick_tree
 	//SUM with modifications
 	/***********************/
+	template<typename T>
 	struct fenwick_tree
 	{
-		vector<int> t;
+		vector<T> t;
 		int n;
 
 		fenwick_tree(int nn)
 		{
 			n = nn;
-			t.assign(n, 0);
+			t.assign(n, T(0));
 		}
 
-		fenwick_tree(const vector<int>& a) : fenwick_tree((int)a.size())
+		fenwick_tree(const vector<T>& a) : fenwick_tree((int)a.size())
 		{
-			for (unsigned i = 0; i < a.size(); i++)
+			for (auto i = 0; i < a.size(); i++)
 				inc(i, a[i]);
 		}
 
 		//i is range [0,n-1], calc for [0,r]
-		int sum(int r)
+		T sum(int r)
 		{
-			int result = 0;
+			T result = 0;
 			for (; r >= 0; r = (r & (r + 1)) - 1)
 				result += t[r];
 			return result;
 		}
 
 		//i is range [0,n-1]
-		void inc(int i, int delta)
+		void inc(int i, T delta)
 		{
 			for (; i < n; i = (i | (i + 1)))
 				t[i] += delta;
@@ -43,7 +44,7 @@ namespace {
 
 		//l,r is range [0,n-1]
 		//calcs for [l,r]
-		int sum(int l, int r)
+		T sum(int l, int r)
 		{
 			return sum(r) - sum(l - 1);
 		}
@@ -91,7 +92,7 @@ namespace {
 	/***********************/
 
 	TEST(fenwick_tree_tests, sum_test) {
-		fenwick_tree t1(10);
+		fenwick_tree<int> t1(10);
 
 		t1.inc(0, 1);
 		t1.inc(5, 2);
