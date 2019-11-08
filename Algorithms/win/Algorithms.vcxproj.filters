@@ -98,6 +98,9 @@
     <Filter Include="Strings\SuffixAutomation">
       <UniqueIdentifier>{c1d5cf54-d02a-4b3b-889e-e4a9a2dbabdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Methods\DP">
+      <UniqueIdentifier>{fe11d937-e113-4dd1-a878-1c5a4760a06d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -223,6 +226,12 @@
     </ClCompile>
     <ClCompile Include="..\structures\segment_tree\segment_tree_frogs.cpp">
       <Filter>Structures\SegmentTree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\methods\dp\tree_dp.cpp">
+      <Filter>Methods\DP</Filter>
+    </ClCompile>
+    <ClCompile Include="..\geometry\interval_tree_rect_finder.cpp">
+      <Filter>Geometry</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
