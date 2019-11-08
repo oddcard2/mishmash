@@ -101,6 +101,9 @@
     <Filter Include="Methods\DP">
       <UniqueIdentifier>{fe11d937-e113-4dd1-a878-1c5a4760a06d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bits">
+      <UniqueIdentifier>{46398cee-e379-4bf8-be7b-320f2af3fe5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\main.cpp" />
@@ -232,6 +235,15 @@
     </ClCompile>
     <ClCompile Include="..\geometry\interval_tree_rect_finder.cpp">
       <Filter>Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bits_count.cpp">
+      <Filter>Bits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bitsmask_iterations.cpp">s
+      <Filter>Bits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\bits\bit_operations.cpp">
+      <Filter>Bits</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

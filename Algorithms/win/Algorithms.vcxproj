@@ -120,6 +120,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\bits\bitsmask_iterations.cpp" />
+    <ClCompile Include="..\bits\bits_count.cpp" />
+    <ClCompile Include="..\bits\bit_operations.cpp" />
     <ClCompile Include="..\examples\interactive_problem_example.cpp" />
     <ClCompile Include="..\geometry\complex_numbers.cpp" />
     <ClCompile Include="..\geometry\convex_hull_monotone_chain.cpp" />
