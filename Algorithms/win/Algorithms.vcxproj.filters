@@ -239,7 +239,7 @@
     <ClCompile Include="..\bits\bits_count.cpp">
       <Filter>Bits</Filter>
     </ClCompile>
-    <ClCompile Include="..\bits\bitsmask_iterations.cpp">s
+    <ClCompile Include="..\bits\bitsmask_iterations.cpp">
       <Filter>Bits</Filter>
     </ClCompile>
     <ClCompile Include="..\bits\bit_operations.cpp">
