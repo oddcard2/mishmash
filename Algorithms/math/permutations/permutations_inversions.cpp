@@ -43,7 +43,7 @@ namespace {
 	};
 	/***********************/
 
-	int count_inversions(const vi& p) {
+	int count_inversions2(const vi& p) {
 		fenwick_tree t(sz(p)+1);
 
 		int res = 0;
@@ -52,6 +52,17 @@ namespace {
 			t.inc(p[i], 1);
 		}
 		return res;
+	}
+
+	int count_inversions(const vi& a) {
+		int cnt = 0;
+
+		fenwick_tree t((int)a.size());
+		for (int i = 1; i < (int)a.size(); i++) {
+			cnt += (a[i] - 1) - t.sum(a[i] - 1);
+			t.inc(a[i], 1);
+		}
+		return cnt;
 	}
 	
 	TEST(perm_tests, inv_count_test) {
