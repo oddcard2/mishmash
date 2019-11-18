@@ -124,10 +124,9 @@ int main() {
 		int x1, y1, x2, y2, col;
 		cin >> x1 >> y1 >> x2 >> y2 >> col;
 
-		if (x2 - x1 > 1) {
-			v[x1].push_back(pnt{y1, i, 0, 0, col});
-			v[x1].push_back(pnt{y2-1, i, 1, 0, col });
-		}
+		v[x1].push_back(pnt{y1, i, 0, 0, col});
+		v[x1].push_back(pnt{y2-1, i, 1, 0, col });
+
 		v[x2-1].push_back(pnt{ y1, i, 0, 1, col });
 		v[x2-1].push_back(pnt{ y2-1, i, 1, 1, col });
 	}
@@ -138,7 +137,9 @@ int main() {
 			cf++;
 		}
 		else {
-			coef[i] = cf;
+			coef[i] = 1;
+			if (i < a - 1 && cf - 1>0)
+				coef[i + 1] = cf-1;
 			cf = 1;
 		}
 	}
@@ -149,10 +150,11 @@ int main() {
 	set<pnt> points;
 	
 	forn(i, a) {
-		if (!sz(v[i])) continue;
+		if (!coef[i]) continue;
 
 		forn(j, sz(v[i])) {
-			points.insert(v[i][j]);
+			if (!v[i][j].back)
+				points.insert(v[i][j]);
 		}
 
 		opencol.clear();
@@ -193,13 +195,7 @@ int main() {
 				if (p->close) {
 					opencol.erase({ p->num, p->col });
 				}
-
-				if (p->back) {
-					p = points.erase(p);
-				}
-				else {
-					++p;
-				}
+				++p;
 			}
 		}
 		// 5. colors remains
@@ -211,7 +207,21 @@ int main() {
 		}
 		stat[curr_col] += prev_cnt * coef[i];
 
+		forn(j, sz(v[i])) {
+			if (v[i][j].back) {
+				pnt p = v[i][j];
+				p.back = 1;
+				points.erase(p);
+			}
+		}
+
 	}
+
+	int sum = 0;
+	for (int i = 2; i < 2501; i++) {
+		sum += stat[i];
+	}
+	stat[1] = a * b - sum;
 
 	for (int i = 1; i < 2501; i++) {
 		if (stat[i]) {
